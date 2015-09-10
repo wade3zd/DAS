@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
 
-<mapper namespace="dwz.persistence.mapper.OverallMapper">
+<mapper namespace="dwz.persistence.mapper_overall.OverallMapper">
 	<resultMap id="rm" type="dwz.persistence.beans.InfOverall">
 		<result property="dau" jdbcType="INTEGER" column="DAU"/>
 		<result property="pv" jdbcType="INTEGER" column="PV"/>
@@ -15,11 +15,9 @@
 		NEWUSER,
 	</sql>
 	<select id="findByDate" parameterType="map" resultMap="rm">
-		SELECT 
-			<include refid="Base_Column_List" />
-		FROM overall_test 
-		WHERE 
-			DATE BETWEEN #{stratDate} AND  #{endDate}
+		SELECT DATE,DAU,PV,NEWUSER FROM overall_test 
+		<!-- WHERE 
+			DATE BETWEEN #{stratDate} AND  #{endDate} -->
 	</select>
 	
 </mapper>

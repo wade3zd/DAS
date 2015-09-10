@@ -25,6 +25,6 @@ public interface OverallMapper {
 	List<SysUser> findPageBreakByCondition(BaseConditionVO vo, RowBounds rb);
 
 	Integer findNumberByCondition(BaseConditionVO vo);*/
-	List<InfOverall> findByDate(@Param("stratDate") Date stratDate,@Param("endDate") Date endDate);
+	List<InfOverall> findByDate(@Param("stratDate") String stratDate,@Param("endDate") String endDate);
 
 }
