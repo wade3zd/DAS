@@ -8,7 +8,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.google.gson.Gson;
 
 import dwz.framework.das.InfOverallServiceMgr;
 import dwz.framework.enums.Gender;
@@ -24,12 +27,13 @@ import dwz.web.BaseController;
 public class OverallController extends BaseController{
 	@Autowired
 	private InfOverallServiceMgr infOverall;
-
+	Gson gson=new Gson();  
 	@RequestMapping("")
+	@ResponseBody 
 	public String list( Model model) {
 		String meg = infOverall.findByDate("2015-09-01","2015-09-08");		
 		model.addAttribute("message", meg);
-		return meg;
+		return gson.toJson(meg);
 	}
 	
 	

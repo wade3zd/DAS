@@ -50,7 +50,7 @@ public class InfOverall implements Serializable{
 		this.date = date;
 	}
 	public String toString() {
-		return new ToStringBuilder(this,ToStringStyle.MULTI_LINE_STYLE)
+		return new ToStringBuilder("")
 			.append("Date",getDate())
 			.append("Dau",getDau())
 			.append("Pv",getPv())
